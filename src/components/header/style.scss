@@ -1,0 +1,96 @@
+@import '../../assets//styles/variables.scss';
+.header {
+  width: 100%;
+  height: 65px;
+  background-color: $background;
+  margin-bottom: 30px;
+
+  .container {
+    display: flex;
+    
+
+    .logo {
+      width: 261px;
+      height: 100%;
+      margin-right: 10px;
+
+      .multiSpan {
+        font-size: 2.5rem;
+        font-weight: 700;
+        padding: 11px 8px;
+        background-color: $background;
+        color: $product_yellow;
+      }
+      .shopSpan {
+        font-size: 2.5rem;
+        font-weight: 700;
+        padding: 11px 8px;
+        background-color: $product_yellow;
+      }
+    }
+
+    .navbar {
+      width: 1179px;
+      height: 100%;
+      height: 65px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .navbarPages {
+        width: 250px;
+
+        ul {
+          display: flex;
+          justify-content: space-between;
+          list-style: none;
+          li{
+            a {
+              font-size: 1rem;
+              font-weight: 400;
+              text-decoration: none;
+              color: $white_2;
+  
+              &:hover {
+                color: $product_yellow;
+              }
+            }
+          }
+        }
+      }
+
+      .navbarIcon {
+        width: 30px;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+       
+        a {
+          list-style: none;
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+
+          .shoppingCartZero {
+            font-size: 10px;
+            font-weight: 800;
+            border: 2px solid $shopping_cart_border;
+            border-radius: 50%;
+            color: $white_3;
+            padding:3px 4.8px 2px 4.8px;
+            padding-bottom: 2px;
+            box-sizing: border-box;
+          }
+
+          .shoppingCart {
+            font-size: 20px;
+            font-weight: 400;
+            color: $product_yellow;
+            margin-left: 5px;
+          }
+        }
+      }
+    }
+  }
+}

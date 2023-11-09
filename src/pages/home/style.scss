@@ -1,0 +1,151 @@
+@import "../../assets/styles/variables.scss";
+
+.homePage {
+  width: 100%;
+  background-color: $white_3;
+  gap: 30px;
+
+  .bannerSection {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 48px;
+  }
+}
+
+.slider {
+  width: 57%;
+}
+
+.offerText {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.infoColumList {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 48px;
+  .colum {
+    width: 266px;
+    height: 40px;
+    padding: 30px;
+    background-color: $white_1;
+    display: flex;
+    align-items: center;
+
+    span {
+      font-size: 3rem;
+      color: $product_yellow;
+      font-weight: 900;
+      padding: 10px;
+    }
+
+    h5 {
+      font-weight: 500;
+      font-size: 1.25rem;
+    }
+  }
+}
+
+.categories {
+  width: 100%;
+  height: 30px;
+  border-top: 1px dashed $border;
+  display: flex;
+  margin: 30px 0;
+  .categoriesTittle {
+    font-size: 22px;
+    font-weight: 700;
+    width: 150px;
+    display: inline-block;
+  }
+  .categoriesDashed {
+    height: 1px;
+    text-decoration: dashed;
+    width: calc(100% - 150px);
+    color: black;
+    display: inline-block;
+  }
+}
+
+.categoriesList {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+
+  .categoriesData {
+    width: 22%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    background-color: $white_1;
+    a {
+      text-decoration: none;
+      color: black;
+      width: 100%;
+      height: 100px;
+      display: flex;
+      justify-content: space-between;
+
+      .categoriesIcon {
+        height: 100%;
+        width: 100px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .categoriesText {
+        width: 200px;
+      }
+    }
+  }
+}
+
+.productList {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.specialOfferBanner {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  div {
+    width: 48.5%;
+    height: 300px;
+  }
+}
+
+.featuredText {
+  font-size: 22px;
+  font-weight: 700;
+  margin-top: 30px;
+}
+.recentText {
+  margin-top: 30px;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.autoplaySlider {
+  width: 100%;
+  height: 65px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.homePageSlider{
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+
+}

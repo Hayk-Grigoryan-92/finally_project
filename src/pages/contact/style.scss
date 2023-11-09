@@ -1,0 +1,117 @@
+@import "../../assets/styles/variables.scss";
+
+.contact {
+  width: 100%;
+  background-color: $white_3;
+  gap: 30px;
+
+  .contactPageLocation {
+    width: 100%;
+    height: 48px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 15px;
+    background-color: $white_1;
+    margin-bottom: 30px;
+    span {
+      margin-right: 10px;
+      color: $background;
+    }
+  }
+
+  h2{
+    font-size: 2rem;
+    font-weight: 700;
+    color: $background;
+    margin-bottom: 30px;
+  }
+
+  .contactSection{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    .messageSection{
+        width: 57%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 520px;
+        background-color: $white_1;
+        padding: 30px;
+
+        .inputForm{
+            width: 100%;
+            height: 40px;
+            border: 1px solid $text_color;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            label{
+                width: 95%;
+                height: 90%;
+                input{
+                    width: 95%;
+                    height: 90%;
+                }
+            }
+        }
+        .inputTextArea{
+            width: 100%;
+            height: 205px;
+            border: 1px solid $text_color;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            label{
+                width: 95%;
+                height: 95%;
+                textarea{
+                    width: 95%;
+                    height: 95%;
+                    resize: none;
+                }
+            }
+        }
+        button{
+            width: 150px;
+            height: 40px;
+            background-color: $product_yellow;
+        }
+    }
+
+    .aboutUSInfo{
+        width: 41%;
+        height: 518px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .locationInfo{
+            height: 320px;
+            width: 100%;
+            background-color: $white_1;
+            padding: 30px;
+        }
+
+        .contactInfo{
+            width: 100%;
+            background-color: $white_1;
+            padding: 30px;
+            height: 160px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            div{
+                span{
+                    margin-right: 10px;
+                    color: $product_yellow;
+                    font-size: 20px;
+                    font-weight: 800;
+                }
+            }
+        }
+    }
+  }
+}
