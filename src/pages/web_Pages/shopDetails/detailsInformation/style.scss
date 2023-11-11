@@ -1,4 +1,4 @@
-@import '../../../assets/styles/variables.scss';
+@import 'src/assets/styles/variables.scss';
 
 .detailsInformation{
     width: 100%;
@@ -14,6 +14,15 @@
         flex-direction: column;
         justify-content: space-between;
         color: $text_color;
+        h4{
+            color: $background;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        p{
+            font-size: 16px;
+        }
     }
 
     .infoDescription{
@@ -21,6 +30,7 @@
         height: 180px;
         display: flex;
         justify-content: space-between;
+        margin-top: 30px;
         
         .leftSide{
             width: 48%;

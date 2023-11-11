@@ -1,11 +1,11 @@
 import { useState } from "react";
 import "./style.scss";
-import productImg from "../../assets/images/product-1.jpg";
+import productImg from "../../../assets/images/product-1.jpg";
 import { Link } from "react-router-dom";
-import { routerPage } from "../../routes";
+import { routerPage } from "../../../routes";
 
 export const ShoppingCart = () => {
-  const [productCart, setProductCart] = useState([
+  const [productCart] = useState([
     {
       image: productImg,
       name: "Product Name",

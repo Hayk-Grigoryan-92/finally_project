@@ -1,36 +1,35 @@
 import "./style.scss";
-import "../../assets/styles/index.scss";
 import { CustomSlider } from "./components/slider";
-import img1 from "../../assets/images/carousel-1.jpg";
-import img2 from "../../assets/images/carousel-2.jpg";
-import img3 from "../../assets/images/carousel-3.jpg";
+import img1 from "../../../assets/images/carousel-1.jpg";
+import img2 from "../../../assets/images/carousel-2.jpg";
+import img3 from "../../../assets/images/carousel-3.jpg";
 import { SpecialOffer } from "./components/specialOffer";
-import { ProductList } from "../../components/productList";
-import offerImg1 from "../../assets/images/specOffer-1.jpg";
-import offerImg2 from "../../assets/images/specOffer-2.jpg";
+import { ProductList } from "../../../components/productList";
+import offerImg1 from "../../../assets/images/specOffer-1.jpg";
+import offerImg2 from "../../../assets/images/specOffer-2.jpg";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { CustomAutoplaySlider } from "./components/autoplaySlider";
-import cat1 from "../../assets/images/cat-1.jpg";
-import cat2 from "../../assets/images/cat-2.jpg";
-import cat3 from "../../assets/images/cat-3.jpg";
-import cat4 from "../../assets/images/cat-4.jpg";
-import product1 from "../../assets/images/product-1.jpg";
-import product2 from "../../assets/images/product-2.jpg";
-import product3 from "../../assets/images/product-3.jpg";
-import product4 from "../../assets/images/product-4.jpg";
-import product5 from "../../assets/images/product-5.jpg";
-import product6 from "../../assets/images/product-6.jpg";
-import product7 from "../../assets/images/product-7.jpg";
-import product8 from "../../assets/images/product-8.jpg";
-import sliderLogo1 from "../../assets/images/autoSlider-1.jpg";
-import sliderLogo2 from "../../assets/images/autoSlider-2.jpg";
-import sliderLogo3 from "../../assets/images/autoSlider-3.jpg";
-import sliderLogo4 from "../../assets/images/autoSlider-4.jpg";
-import sliderLogo5 from "../../assets/images/autoSlider-5.jpg";
-import sliderLogo6 from "../../assets/images/autoSlider-6.jpg";
-import sliderLogo7 from "../../assets/images/autoSlider-7.jpg";
-import sliderLogo8 from "../../assets/images/autoSlider-8.jpg";
+import cat1 from "../../../assets/images/cat-1.jpg";
+import cat2 from "../../../assets/images/cat-2.jpg";
+import cat3 from "../../../assets/images/cat-3.jpg";
+import cat4 from "../../../assets/images/cat-4.jpg";
+import product1 from "../../../assets/images/product-1.jpg";
+import product2 from "../../../assets/images/product-2.jpg";
+import product3 from "../../../assets/images/product-3.jpg";
+import product4 from "../../../assets/images/product-4.jpg";
+import product5 from "../../../assets/images/product-5.jpg";
+import product6 from "../../../assets/images/product-6.jpg";
+import product7 from "../../../assets/images/product-7.jpg";
+import product8 from "../../../assets/images/product-8.jpg";
+import sliderLogo1 from "../../../assets/images/autoSlider-1.jpg";
+import sliderLogo2 from "../../../assets/images/autoSlider-2.jpg";
+import sliderLogo3 from "../../../assets/images/autoSlider-3.jpg";
+import sliderLogo4 from "../../../assets/images/autoSlider-4.jpg";
+import sliderLogo5 from "../../../assets/images/autoSlider-5.jpg";
+import sliderLogo6 from "../../../assets/images/autoSlider-6.jpg";
+import sliderLogo7 from "../../../assets/images/autoSlider-7.jpg";
+import sliderLogo8 from "../../../assets/images/autoSlider-8.jpg";
 
 export const Home = () => {
   const [infoColumData, setInfoColumData] = useState([
@@ -52,26 +51,29 @@ export const Home = () => {
     },
   ]);
 
-  const[sliderData, setSliderData]=useState([
+  const [sliderData, setSliderData] = useState([
     {
-      slideImage:`${img1}`,
-      tittle:'Men Fashion',
-      description:'Lorem rebum magna amet lorem magna erat diam stet. Sadips duo stet amet amet ndiam elitr ipsum diam',
-      submit:'Shop Now'
+      slideImage: `${img1}`,
+      tittle: "Men Fashion",
+      description:
+        "Lorem rebum magna amet lorem magna erat diam stet. Sadips duo stet amet amet ndiam elitr ipsum diam",
+      submit: "Shop Now",
     },
     {
-      slideImage:`${img2}`,
-      tittle:'Woman Fashion',
-      description:'Lorem rebum magna amet lorem magna erat diam stet. Sadips duo stet amet amet ndiam elitr ipsum diam',
-      submit:'Shop Now'
+      slideImage: `${img2}`,
+      tittle: "Woman Fashion",
+      description:
+        "Lorem rebum magna amet lorem magna erat diam stet. Sadips duo stet amet amet ndiam elitr ipsum diam",
+      submit: "Shop Now",
     },
     {
-      slideImage:`${img3}`,
-      tittle:'Kids Fashion',
-      description:'Lorem rebum magna amet lorem magna erat diam stet. Sadips duo stet amet amet ndiam elitr ipsum diam',
-      submit:'Shop Now'
+      slideImage: `${img3}`,
+      tittle: "Kids Fashion",
+      description:
+        "Lorem rebum magna amet lorem magna erat diam stet. Sadips duo stet amet amet ndiam elitr ipsum diam",
+      submit: "Shop Now",
     },
-  ])
+  ]);
 
   const [categoriesList, setCategoriesList] = useState([
     {
@@ -142,56 +144,56 @@ export const Home = () => {
       productTittle: "Product Name Goes Here",
       productNewPrice: "$123.00",
       rate: 5,
-      id:'s7d15a4d56',
+      id: "s7d15a4d56",
     },
     {
       productImg: `${product2}`,
       productTittle: "Product Name Goes Here",
       productNewPrice: "$123.00",
       rate: 5,
-      id:'s7489a4d56',
+      id: "s7489a4d56",
     },
     {
       productImg: `${product3}`,
       productTittle: "Product Name Goes Here",
       productNewPrice: "$123.00",
       rate: 4,
-      id:'s7d15s8d56',
+      id: "s7d15s8d56",
     },
     {
       productImg: `${product4}`,
       productTittle: "Product Name Goes Here",
       productNewPrice: "$123.00",
       rate: 3,
-      id:'s7d15aw8416',
+      id: "s7d15aw8416",
     },
     {
       productImg: `${product5}`,
       productTittle: "Product Name Goes Here",
       productNewPrice: "$123.00",
       rate: 3,
-      id:'s7d15a8f9g6',
+      id: "s7d15a8f9g6",
     },
     {
       productImg: `${product6}`,
       productTittle: "Product Name Goes Here",
       productNewPrice: "$123.00",
       rate: 4,
-      id:'s7d151sbg56',
+      id: "s7d151sbg56",
     },
     {
       productImg: `${product7}`,
       productTittle: "Product Name Goes Here",
       productNewPrice: "$123.00",
       rate: 5,
-      id:'s7d15ah6892',
+      id: "s7d15ah6892",
     },
     {
       productImg: `${product8}`,
       productTittle: "Product Name Goes Here",
       productNewPrice: "$123.00",
       rate: 5,
-      id:'s7d15a36d16',
+      id: "s7d15a36d16",
     },
   ]);
 
@@ -199,9 +201,7 @@ export const Home = () => {
     <div className="homePage G_container">
       <div className="bannerSection">
         <div className="slider">
-          <CustomSlider
-            sliderListData={sliderData}
-          />
+          <CustomSlider sliderListData={sliderData} />
         </div>
         <div className="offerText">
           <SpecialOffer
@@ -286,17 +286,17 @@ export const Home = () => {
 
       <div className="autoplaySlider">
         <CustomAutoplaySlider
-        className='homePageSlider'
-         sliderItems={[
-          sliderLogo1,
-          sliderLogo2,
-          sliderLogo3,
-          sliderLogo4,
-          sliderLogo5,
-          sliderLogo6,
-          sliderLogo7,
-          sliderLogo8,
-        ]}
+          className="homePageSlider"
+          sliderItems={[
+            sliderLogo1,
+            sliderLogo2,
+            sliderLogo3,
+            sliderLogo4,
+            sliderLogo5,
+            sliderLogo6,
+            sliderLogo7,
+            sliderLogo8,
+          ]}
         />
       </div>
     </div>

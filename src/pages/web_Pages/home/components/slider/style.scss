@@ -1,4 +1,4 @@
-@import "../../../../assets//styles//index.scss";
+@import "src/assets/styles/index.scss";
 .sliderComponent {
   width: 100%;
   min-height: 430px;
@@ -35,7 +35,7 @@
 .sliderContainer {
   height: 430px;
   width: 100%;
-  
+
   .sliderImg {
     height: 430px;
     width: 100%;
@@ -44,7 +44,7 @@
     align-items: center;
   }
 }
-.sliderText{
+.sliderText {
   width: 60%;
   height: 50%;
   display: flex;
@@ -52,17 +52,17 @@
   justify-content: space-between;
   align-items: center;
   text-align: center;
-  h2{
+  h2 {
     color: $white_1;
     font-size: 3.5rem;
     font-weight: 400;
   }
-  p{
+  p {
     color: $white_1;
     font-size: 18px;
     font-weight: 400;
   }
-  button{
+  button {
     width: 125px;
     height: 40px;
     color: $white_1;

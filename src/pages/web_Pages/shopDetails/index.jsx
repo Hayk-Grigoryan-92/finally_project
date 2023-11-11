@@ -1,14 +1,18 @@
 import "./style.scss";
-import product1 from "../../assets/images/product-1.jpg";
-import product2 from "../../assets/images/product-2.jpg";
-import product3 from "../../assets/images/product-3.jpg";
-import product4 from "../../assets/images/product-4.jpg";
+import product1 from "../../../assets/images/product-1.jpg";
+import product2 from "../../../assets/images/product-2.jpg";
+import product3 from "../../../assets/images/product-3.jpg";
+import product4 from "../../../assets/images/product-4.jpg";
 import { useState } from "react";
 import { DetailsDescription } from "./detailsDescription";
-import { ProductList } from "../../components/productList";
+import { ProductList } from "../../../components/productList";
+import { DetailsInformation } from "./detailsInformation";
+import { DetailsReview } from "./detailsReview";
+import { useProductsContext } from "../../../context/products";
 
 export const ShopDetails = () => {
-  const [productDetail, setProductDetail] = useState({
+ 
+  const [productDetail] = useState({
     productImg: `${product1}`,
     productName: "Product Name Goes Here",
     productDescription:
@@ -18,7 +22,7 @@ export const ShopDetails = () => {
     id: "s7d15a4d56",
   });
 
-  const [productList, setProductList] = useState([
+  const [productList] = useState([
     {
       productImg: `${product1}`,
       productTittle: "Product Name Goes Here",
@@ -48,6 +52,41 @@ export const ShopDetails = () => {
       id: "s7d15aw8416",
     },
   ]);
+
+  const [detailsTabData, setDetailsTabData] = useState([
+    "Description",
+    "Information",
+    "Reaviews (0)",
+  ]);
+
+  const { addToProduct } = useProductsContext();
+  const [count, setCount] = useState(1);
+
+  function handleClickMinus() {
+    if (count > 1) {
+      setCount(count - 1);
+    }
+  }
+  function handleClickPlus() {
+    if (count >= 1) {
+      setCount(count + 1);
+    }
+  }
+
+  function addToCart() {
+    addToProduct({
+      name: "test product",
+      desc: "lorem",
+      price: 400,
+      count,
+    });
+  }
+
+  const [activeTab, setActiveTab] = useState(0);
+
+  function handleClick(index) {
+    setActiveTab(index);
+  }
 
   return (
     <div className="shopDetails G_container">
@@ -151,16 +190,20 @@ export const ShopDetails = () => {
 
           <div className="addProduct">
             <div className="addQuantity">
-              <button className="minus">-</button>
-              <div className="addNumberInput">
+              <button className="minus" onClick={handleClickMinus}>
+                -
+              </button>
+              <div className="addNumberText">
                 <label>
-                  <input type="text" />
+                  <span>{count}</span>
                 </label>
               </div>
-              <button className="plus">+</button>
+              <button className="plus" onClick={handleClickPlus}>
+                +
+              </button>
             </div>
             <div className="addButton">
-              <button>
+              <button onClick={addToCart}>
                 <span className="icon-shopping"></span>
                 <span>Add To Cart</span>
               </button>
@@ -179,25 +222,31 @@ export const ShopDetails = () => {
 
       <div className="infoContainer">
         <div className="productInfo">
-          <div>Description</div>
-          <div>Information</div>
-          <div>Reviews (0)</div>
+          {detailsTabData.map((item, index) => {
+            return (
+              <div onClick={() => handleClick(index)} key={index}>
+                {item}
+              </div>
+            );
+          })}
         </div>
 
         <div className="productDetails">
-          <DetailsDescription />
+          {activeTab === 0 ? <DetailsDescription /> : null}
+          {activeTab === 1 ? <DetailsInformation /> : null}
+          {activeTab === 2 ? <DetailsReview /> : null}
         </div>
       </div>
 
       <div className="productDetailsList">
-          <h2>You May Also Like</h2>
-          <div className="productDetailsListContainer">
+        <h2>You May Also Like</h2>
+        <div className="productDetailsListContainer">
           {productList.map((item, index) => {
-              return (
-                <ProductList className="productItem" key={index} data={item} />
-              );
-            })}
-          </div>
+            return (
+              <ProductList className="productItem" key={index} data={item} />
+            );
+          })}
+        </div>
       </div>
     </div>
   );

@@ -1,16 +1,15 @@
 import "./App.scss";
 import { Header } from "./components/header";
-import { Home } from "./pages/home";
+import { Home } from "./pages/web_Pages/home";
 import { Footer } from "./components/footer";
 import "./assets/styles/index.scss";
-import { Shop } from "./pages/shop";
-import { Route, Routes } from "react-router-dom";
+import { Shop } from "./pages/web_Pages/shop";
+import { Route, Routes, useLocation } from "react-router-dom";
 import { routerPage } from "./routes";
-import { Contact } from "./pages/contact";
-import { ShopDetails } from "./pages/shopDetails";
-import { ShoppingCart } from "./pages/shopipngCart";
-import { Checkout } from "./pages/checkout";
-import { useLocation } from "react-router-dom";
+import { Contact } from "./pages/web_Pages/contact";
+import { ShopDetails } from "./pages/web_Pages/shopDetails";
+import { ShoppingCart } from "./pages/web_Pages/shoppingCart";
+import { Checkout } from "./pages/web_Pages/checkout";
 import { useEffect } from "react";
 
 function App() {

@@ -1,15 +1,15 @@
 import "./style.scss";
 import { useState } from "react";
-import product1 from "../../assets/images/product-1.jpg";
-import product2 from "../../assets/images/product-2.jpg";
-import product3 from "../../assets/images/product-3.jpg";
-import product4 from "../../assets/images/product-4.jpg";
-import product5 from "../../assets/images/product-5.jpg";
-import product6 from "../../assets/images/product-6.jpg";
-import product7 from "../../assets/images/product-7.jpg";
-import product8 from "../../assets/images/product-8.jpg";
-import product9 from "../../assets/images/product-9.jpg";
-import { ProductList } from "../../components/productList";
+import product1 from "../../../assets/images/product-1.jpg";
+import product2 from "../../../assets/images/product-2.jpg";
+import product3 from "../../../assets/images/product-3.jpg";
+import product4 from "../../../assets/images/product-4.jpg";
+import product5 from "../../../assets/images/product-5.jpg";
+import product6 from "../../../assets/images/product-6.jpg";
+import product7 from "../../../assets/images/product-7.jpg";
+import product8 from "../../../assets/images/product-8.jpg";
+import product9 from "../../../assets/images/product-9.jpg";
+import { ProductList } from "../../../components/productList";
 
 export const Shop = () => {
   const [productList, setProductList] = useState([
@@ -18,63 +18,63 @@ export const Shop = () => {
       productTittle: "Product Name Goes Here",
       productNewPrice: "$123.00",
       rate: 5,
-      id:'s7d15a4d56',
+      id: "s7d15a4d56",
     },
     {
       productImg: `${product2}`,
       productTittle: "Product Name Goes Here",
       productNewPrice: "$123.00",
       rate: 5,
-      id:'s7489a4d56',
+      id: "s7489a4d56",
     },
     {
       productImg: `${product3}`,
       productTittle: "Product Name Goes Here",
       productNewPrice: "$123.00",
       rate: 4,
-      id:'s7d15s8d56',
+      id: "s7d15s8d56",
     },
     {
       productImg: `${product4}`,
       productTittle: "Product Name Goes Here",
       productNewPrice: "$123.00",
       rate: 4,
-      id:'s7d15aw8416',
+      id: "s7d15aw8416",
     },
     {
       productImg: `${product5}`,
       productTittle: "Product Name Goes Here",
       productNewPrice: "$123.00",
       rate: 5,
-      id:'s7d15a8f9g6',
+      id: "s7d15a8f9g6",
     },
     {
       productImg: `${product6}`,
       productTittle: "Product Name Goes Here",
       productNewPrice: "$123.00",
       rate: 3,
-      id:'s7d151sbg56',
+      id: "s7d151sbg56",
     },
     {
       productImg: `${product7}`,
       productTittle: "Product Name Goes Here",
       productNewPrice: "$123.00",
       rate: 4,
-      id:'s7d15ah6892',
+      id: "s7d15ah6892",
     },
     {
       productImg: `${product8}`,
       productTittle: "Product Name Goes Here",
       productNewPrice: "$123.00",
       rate: 5,
-      id:'s7d15a36d16',
+      id: "s7d15a36d16",
     },
     {
       productImg: `${product9}`,
       productTittle: "Product Name Goes Here",
       productNewPrice: "$123.00",
       rate: 5,
-      id:'s7d15a3jh852',
+      id: "s7d15a3jh852",
     },
   ]);
 

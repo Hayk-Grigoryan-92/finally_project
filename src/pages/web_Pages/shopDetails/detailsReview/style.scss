@@ -1,0 +1,45 @@
+@import "src/assets/styles/variables.scss";
+
+.detailsReview {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  .detailsLeftSide {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    h4 {
+      font-size: 24px;
+      font-weight: 600;
+      color: $background;
+      width: 100%;
+    }
+    .leftSideContent {
+      display: flex;
+      .detailsIcon {
+        width: 20%;
+        div {
+          width: 50px;
+          height: 50px;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+      }
+      .detailsText {
+        width: 80%;
+        h6 {
+          font-size: 16px;
+          color: $background;
+          font-weight: 400;
+          small {
+            font-size: 13px;
+            color: $text_color;
+            margin-left: 10px;
+          }
+        }
+      }
+    }
+  }
+}
