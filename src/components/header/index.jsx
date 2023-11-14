@@ -37,11 +37,23 @@ export const Header = () => {
               </li>
             </ul>
           </div>
-          <div className="navbarIcon">
+          <div className="navbarRightSection">
+            <div className="navbarSignIn">
+              <ul>
+                <li>
+                  <NavLink to={routerPage.LOGIN}>Login</NavLink>
+                </li>
+                <li>
+                  <NavLink to={routerPage.REGISTRATION}>Registration</NavLink>
+                </li>
+              </ul>
+            </div>
+            <div className="navbarIcon">
             <NavLink to={routerPage.SHOPPING_CART}>
               <span className="icon-shopping shoppingCart"></span>
               <span className="shoppingCartZero">{productsLength}</span>
             </NavLink>
+          </div>
           </div>
         </div>
       </div>

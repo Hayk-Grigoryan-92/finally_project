@@ -11,24 +11,42 @@ import { ShopDetails } from "./pages/web_Pages/shopDetails";
 import { ShoppingCart } from "./pages/web_Pages/shoppingCart";
 import { Checkout } from "./pages/web_Pages/checkout";
 import { useEffect } from "react";
+import { Login } from "./components/login";
+import { Registration } from "./components/registration";
+import { useState } from "react";
+import { useProductsContext } from "./context/products";
+import { AdminPage } from "./pages/adminPages";
 
 function App() {
   const location = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
+
+  const [token, setToken] = useState("");
+  const userData = useProductsContext();
+
   return (
     <div className="App">
-      <Header />
-      <Routes>
-        <Route path={routerPage.HOME} element={<Home />} />
-        <Route path={routerPage.SHOP} element={<Shop />} />
-        <Route path={routerPage.CONTACT} element={<Contact />} />
-        <Route path={routerPage.SHOP_DETAILS} element={<ShopDetails />} />
-        <Route path={routerPage.SHOPPING_CART} element={<ShoppingCart />} />
-        <Route path={routerPage.CHECKOUT} element={<Checkout />} />
-      </Routes>
-      <Footer />
+      {token && userData.user ? (
+        <AdminPage />
+      ) : (
+        <>
+        <Header />
+        <Routes>
+          <Route path={routerPage.HOME} element={<Home />} />
+          <Route path={routerPage.SHOP} element={<Shop />} />
+          <Route path={routerPage.CONTACT} element={<Contact />} />
+          <Route path={routerPage.SHOP_DETAILS} element={<ShopDetails />} />
+          <Route path={routerPage.SHOPPING_CART} element={<ShoppingCart />} />
+          <Route path={routerPage.CHECKOUT} element={<Checkout />} />
+          <Route path={routerPage.LOGIN} element={<Login />} />
+          <Route path={routerPage.REGISTRATION} element={<Registration />} />
+          <Route path={routerPage.ADMIN_PAGE} element={<AdminPage />} />
+        </Routes>
+        <Footer />
+        </>
+      )}
     </div>
   );
 }

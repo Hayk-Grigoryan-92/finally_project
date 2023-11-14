@@ -1,0 +1,54 @@
+@import "../../assets/styles/variables.scss";
+
+.registration{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .registrationContainer{
+        width: 40%;
+        height: 600px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        background-color: $background; 
+        border-radius: 10px;
+        div{
+            width: 80%;
+            height: 80px;
+            label{
+                width: 100%;
+                input{
+                    width: 100%;
+                    padding: 15px;
+                    background-color: $white_1;
+                    font-size: 16px;
+                    font-weight: 400;
+                    cursor: pointer;
+                }
+            }
+        }
+        button{
+            width: 60%;
+            height: 60px;
+            background-color: $product_yellow;
+            border: 1px solid $background;
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: 700;
+
+            &:hover{
+                background-color: $hover_yellow;
+            }
+        }
+        h3{
+            color: $white_1;
+            a{
+                color: $product_yellow;
+                margin-left: 10px;
+            }
+        }
+    }    
+}

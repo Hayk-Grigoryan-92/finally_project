@@ -10,8 +10,8 @@
     
 
     .logo {
-      width: 261px;
-      height: 100%;
+      width: 20%;
+      height: 65px;
       margin-right: 10px;
 
       .multiSpan {
@@ -30,15 +30,14 @@
     }
 
     .navbar {
-      width: 1179px;
-      height: 100%;
+      width: 80%;
       height: 65px;
       display: flex;
       justify-content: space-between;
       align-items: center;
 
       .navbarPages {
-        width: 250px;
+        width: 35%;
 
         ul {
           display: flex;
@@ -59,38 +58,64 @@
         }
       }
 
-      .navbarIcon {
-        width: 30px;
-        padding: 0;
+      .navbarRightSection{
+        width: 35%;
+        height: 65px;
         display: flex;
         align-items: center;
-        justify-content: center;
-       
-        a {
-          list-style: none;
-          text-decoration: none;
+        justify-content: space-between;
+        .navbarSignIn{
+          width: 75%;
+          height: 65px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          ul{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            li{
+              width: 50%;
+              a{
+                color: $white_2;
+              }
+            }
+          }
+        }
+        .navbarIcon {
+          width: 25%;
+          padding: 0;
           display: flex;
           align-items: center;
-
-          .shoppingCartZero {
-            font-size: 10px;
-            font-weight: 800;
-            border: 2px solid $shopping_cart_border;
-            border-radius: 50%;
-            color: $white_3;
-            padding:3px 4.8px 2px 4.8px;
-            padding-bottom: 2px;
-            box-sizing: border-box;
-          }
-
-          .shoppingCart {
-            font-size: 20px;
-            font-weight: 400;
-            color: $product_yellow;
-            margin-left: 5px;
+          justify-content: center;
+         
+          a {
+            list-style: none;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+  
+            .shoppingCartZero {
+              font-size: 10px;
+              font-weight: 800;
+              border: 2px solid $shopping_cart_border;
+              border-radius: 50%;
+              color: $white_3;
+              padding:3px 4.8px 2px 4.8px;
+              padding-bottom: 2px;
+              box-sizing: border-box;
+            }
+  
+            .shoppingCart {
+              font-size: 20px;
+              font-weight: 400;
+              color: $product_yellow;
+              margin-left: 5px;
+            }
           }
         }
       }
+     
     }
   }
 }
