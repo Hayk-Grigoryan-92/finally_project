@@ -9,7 +9,7 @@ export const Login = () => {
             <div className='loginContainer'>
                 <div>
                     <label>
-                        <input type="email" placeholder='Enteryour e-mail'/>
+                        <input type="email" placeholder='Enter your e-mail'/>
                     </label>
                 </div>
                 <div>

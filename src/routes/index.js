@@ -9,4 +9,8 @@ export const routerPage = {
     LOGIN:'/login',
     REGISTRATION:'/registration',
     ADMIN_PAGE:'/admin_page_home',
+    ADMIN_CATEGORIES:'/admin_page/categories',
+    ADMIN_NOTIFICATIONS:'/admin_page/notifications',
+    ADMIN_PRODUCTS:'/admin_page/products',
+    ADMIN_SETTINGS:'/admin_page/settings',
 }

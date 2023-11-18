@@ -5,6 +5,7 @@ import "../../assets/icons/icon/style.css";
 import { routerPage } from "../../routes";
 import { useProductsContext } from "../../context/products";
 import { useEffect, useState } from "react";
+import { Logo } from "../logo";
 
 export const Header = () => {
   const { product } = useProductsContext();
@@ -19,10 +20,7 @@ export const Header = () => {
   return (
     <div className="header">
       <div className="G_container container">
-        <div className="logo">
-          <span className="multiSpan">MULTI</span>
-          <span className="shopSpan">SHOP</span>
-        </div>
+        <Logo/>
         <div className="navbar">
           <div className="navbarPages">
             <ul>

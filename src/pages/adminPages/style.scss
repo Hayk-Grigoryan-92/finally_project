@@ -1,5 +1,18 @@
-@import '../../assets/styles/variables.scss';
+@import "../../assets/styles/variables.scss";
 
-.aminPage{
-    width: 100%;
+.aminPage {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  .adminLeftSection {
+    width: 25%;
+    height: 100vh;
+    background-color: $white_3;
+    padding: 0 15px;
+  }
+  .adminRightSection{
+    width: 74%;
+  }
 }
+

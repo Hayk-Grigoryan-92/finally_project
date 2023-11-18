@@ -1,0 +1,13 @@
+@import 'src/assets/styles/variables.scss';
+
+.adminTittle{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 65px;
+    padding: 15px;
+    font-size: 24px;
+    font-weight: 700;
+    color: $background;
+}

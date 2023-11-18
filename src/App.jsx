@@ -16,6 +16,10 @@ import { Registration } from "./components/registration";
 import { useState } from "react";
 import { useProductsContext } from "./context/products";
 import { AdminPage } from "./pages/adminPages";
+import { AdminCategories } from "./pages/adminPages/adminCategories";
+import { AdminNotifications } from "./pages/adminPages/adminNotifications";
+import { AdminProducts } from "./pages/adminPages/adminProducts";
+import { AdminSettings } from "./pages/adminPages/adminSettings";
 
 function App() {
   const location = useLocation();
@@ -28,6 +32,9 @@ function App() {
 
   return (
     <div className="App">
+      
+       {/* <AdminPage/> */}
+
       {token && userData.user ? (
         <AdminPage />
       ) : (
