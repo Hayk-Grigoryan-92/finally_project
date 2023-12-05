@@ -16,7 +16,7 @@
       align-items: center;
 
       .navbarPages {
-        width: 35%;
+        width: 25%;
 
         ul {
           display: flex;
@@ -38,11 +38,11 @@
       }
 
       .navbarRightSection{
-        width: 35%;
+        width: 25%;
         height: 65px;
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: space-around;
         .navbarSignIn{
           width: 75%;
           height: 65px;
@@ -52,11 +52,17 @@
           ul{
             width: 100%;
             display: flex;
-            justify-content: space-between;
+            justify-content: space-around;
             li{
-              width: 50%;
-              a{
+              a {
+                font-size: 1rem;
+                font-weight: 400;
+                text-decoration: none;
                 color: $white_2;
+    
+                &:hover {
+                  color: $product_yellow;
+                }
               }
             }
           }

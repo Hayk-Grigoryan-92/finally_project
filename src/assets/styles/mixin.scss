@@ -1,7 +1,5 @@
 @import "./variables";
 
-
-
 @mixin screen-max-width-1200 {
   @media (max-width: $max-width-1200) {
     @content;
@@ -24,4 +22,13 @@
   @media (max-width: $max-width-576) {
     @content;
   }
+}
+
+$sizes: 10;
+
+@while $sizes <= 100 {
+  .gap-#{$sizes} {
+    gap: #{$sizes}px;
+  }
+  $sizes: $sizes + 2;
 }

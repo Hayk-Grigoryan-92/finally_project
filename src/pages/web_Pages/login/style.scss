@@ -1,14 +1,14 @@
-@import "../../assets/styles/variables.scss";
+@import "src/assets/styles/variables.scss";
 
-.registration{
+.login{
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 
-    .registrationContainer{
+    .loginContainer{
         width: 40%;
-        height: 600px;
+        height: 480px;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
@@ -48,6 +48,11 @@
             a{
                 color: $product_yellow;
                 margin-left: 10px;
+            }
+        }
+        h4{
+            a{
+                color: $product_yellow;
             }
         }
     }    

@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { routerPage } from "../../routes";
+import { routerPage } from "../../../routes";
 import "./style.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { createUser } from "../../../platform/api/users-api";
 
 export const Registration = () => {
   const [regFormData, setRegFormData] = useState({
@@ -10,25 +11,34 @@ export const Registration = () => {
     confirmPassword: "",
   });
 
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
   const handleChange = (e) => {
     setRegFormData({ ...regFormData, [e.target.name]: e.target.value });
   };
+  const navigate = useNavigate();
 
-  const registerUser = () => {
-    if(!loading && regFormData.email && regFormData.password && regFormData.confirmPassword && regFormData.password === regFormData.confirmPassword){
-        console.log(regFormData);
-        setLoading(true)
-        fetch('https://crudcrud.com/api/38bed9e7674e4379b2b845984f416463/', {
-            method:'POST',
-            body:regFormData.JSON()
-        }).then(data=>{
-            if(data){
-                setLoading(false)
-            }
-        })
+  const registerUser = async () => {
+    if (
+      !loading &&
+      regFormData.email &&
+      regFormData.password &&
+      regFormData.confirmPassword &&
+      regFormData.password === regFormData.confirmPassword
+    ) {
+      setLoading(true);
+      const result = await createUser(regFormData)
+      if (result) {
+          setRegFormData({
+              email: '',
+              password: '',
+              confirmPassword: ''
+          })
+          setLoading(false)
+      }
+
+      navigate(routerPage.LOGIN);
     }
-  }
+  };
 
   return (
     <div className="registration">
@@ -66,7 +76,9 @@ export const Registration = () => {
             />
           </label>
         </div>
-        <button onClick={registerUser}>{loading? 'Loading...':'Sign Up'}</button>
+        <button onClick={registerUser}>
+          {loading ? "Loading..." : "Sign Up"}
+        </button>
         <h3>
           Alredy have an account ?<Link to={routerPage.LOGIN}>Login</Link>
         </h3>

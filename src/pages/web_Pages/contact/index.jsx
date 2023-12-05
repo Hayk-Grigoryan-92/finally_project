@@ -1,6 +1,29 @@
+import { useState } from "react";
 import "./style.scss";
+import { addNotification } from "../../../platform/api/notifications-api";
 
 export const Contact = () => {
+  const [contactForm, setContactForm] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    setContactForm({ ...contactForm, [e.target.name]: e.target.value });
+  };
+
+  const handleClick = () => {
+    addNotification(contactForm);
+    setContactForm({
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    });
+  };
+
   return (
     <div className="contact G_container">
       <div className="contactPageLocation">
@@ -14,25 +37,51 @@ export const Contact = () => {
         <div className="messageSection">
           <div className="inputForm">
             <label>
-              <input type="text" placeholder="Your Name" />
+              <input
+                type="text"
+                placeholder="Your Name"
+                name="name"
+                value={contactForm.name}
+                onChange={handleChange}
+              />
             </label>
           </div>
           <div className="inputForm">
             <label>
-              <input type="text" placeholder="Your Email" />
+              <input
+                type="text"
+                placeholder="Your Email"
+                name="email"
+                value={contactForm.email}
+                onChange={handleChange}
+              />
             </label>
           </div>
           <div className="inputForm">
             <label>
-              <input type="text" placeholder="Subject" />
+              <input
+                type="text"
+                placeholder="Subject"
+                name="subject"
+                value={contactForm.subject}
+                onChange={handleChange}
+              />
             </label>
           </div>
           <div className="inputTextArea">
             <label>
-              <textarea type="text" placeholder="Message" />
+              <textarea
+                type="text"
+                placeholder="Message"
+                name="message"
+                value={contactForm.message}
+                onChange={handleChange}
+              />
             </label>
           </div>
-          <button className="messageSubmit">Send Message</button>
+          <button className="messageSubmit" onClick={handleClick}>
+            Send Message
+          </button>
         </div>
 
         <div className="aboutUSInfo">

@@ -4,12 +4,12 @@ import { AdminProducts } from "./adminProducts";
 import { AdminSettings } from "./adminSettings";
 import { AdminNotifications } from "./adminNotifications";
 import { AdminPageNavbar } from "../../components/adminPageNavbar";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { routerPage } from "../../routes";
 
 export const AdminPage = () => {
   return (
-    <div className="aminPage G_container">
+    <div className="aminPage">
       <div className="adminLeftSection">
         <AdminPageNavbar />
       </div>
@@ -19,6 +19,7 @@ export const AdminPage = () => {
           <Route path={routerPage.ADMIN_NOTIFICATIONS} element={<AdminNotifications/>} />
           <Route path={routerPage.ADMIN_PRODUCTS} element={<AdminProducts/>} />
           <Route path={routerPage.ADMIN_SETTINGS} element={<AdminSettings/>} />
+          <Route path={'/*'} element={<Navigate to={routerPage.ADMIN_CATEGORIES}/>}/>
         </Routes>
       </div>
     </div>
