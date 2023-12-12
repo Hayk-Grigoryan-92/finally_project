@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const content = 'users'
+const content = 'usersH'
 
 export const getUsers = async () => {
     return await axios.get(`${process.env.REACT_APP_BASE_URL}/${content}`)

@@ -1,7 +1,7 @@
+import './style.scss'
 import { useEffect, useState } from "react";
 import { deleteSize, getSizesList } from "../../../../../platform/api/size-api";
 import { Modal } from "../../../../../components/modal";
-// import { ManageSizes } from "../../manage-settings/size";
 import { ManageSizeDialog } from "../manage-size-dialog";
 import { DeleteDialog } from "../../../../../components/deleteDialog";
 
@@ -55,7 +55,7 @@ export const SizeContent = () => {
             return (
               <div key={index} className="sizeItem G-flex-column ">
                 <p>{item.name}</p>
-                <div className="size-action G-flex">
+                <div className="size_action G-flex">
                   <button
                     onClick={() => {
                       handleSelectItem(item);
@@ -105,7 +105,7 @@ export const SizeContent = () => {
               setSelectedItem(null);
             }}
             onDelete={() => handleDelete()}
-            title={"Hastat uzum eq jnjel ays chap@"}
+            title={"Are you sure you want to remove the size"}
           />
         </Modal>
       ) : null}

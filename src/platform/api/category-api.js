@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const content = 'category'
+const content = 'categoryH'
 
 export const getCategoryList = async () => {
     return await axios.get(`${process.env.REACT_APP_BASE_URL}/${content}`)

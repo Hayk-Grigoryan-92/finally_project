@@ -1,0 +1,99 @@
+@import "src/assets/styles/variables.scss";
+.sizeSection {
+    width: 100%;
+    height: 49%;
+  
+    .sizeSettingList {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      overflow: hidden;
+      overflow-y: scroll;
+    }
+  }
+
+  .settingsHeader {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .sizeItem {
+    width: 140px;
+    height: 80px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px;
+    label {
+      display: flex;
+      p {
+        font-size: 18px;
+        color: $text_color;
+        font-size: 700;
+      }
+      input {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+
+  .size_action {
+    width: 140px;
+    height: 80px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px;
+    button{
+      width: 60px;
+      height: 20px;
+      background-color: $background;
+      color: $white_3;
+      &:hover{
+        color: $product_yellow;
+      }
+    }
+  }
+
+  .add_name_box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    input {
+      background-color: $product_yellow;
+      height: 35px;
+      text-align: center;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  }
+
+  .confirmButton {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    button {
+      width: 120px !important;
+      height: 40px;
+      border-radius: 10px;
+      background-color: $text_color;
+      color: $white_1 !important;
+      cursor: pointer;
+      &:hover {
+        color: $product_yellow !important;
+        transition: 0.3s;
+      }
+    }
+  }

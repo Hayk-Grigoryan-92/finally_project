@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const content = 'notifications'
+const content = 'notificationsH'
 
 export const getNotificationsList = async () => {
     return await axios.get(`${process.env.REACT_APP_BASE_URL}/${content}`)
