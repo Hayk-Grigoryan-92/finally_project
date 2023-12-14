@@ -194,7 +194,6 @@ export const ManageProduct = ({ manageData, onClose, updateList }) => {
                     <option
                     style={{ color: `${item.color}` }}
                       key={index}
-                      // onChange={handleChange}
                     >
                       {item.name ? item.name : "Add product size"}
                     </option>
