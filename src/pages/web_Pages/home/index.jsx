@@ -30,6 +30,9 @@ import sliderLogo5 from "../../../assets/images/autoSlider-5.jpg";
 import sliderLogo6 from "../../../assets/images/autoSlider-6.jpg";
 import sliderLogo7 from "../../../assets/images/autoSlider-7.jpg";
 import sliderLogo8 from "../../../assets/images/autoSlider-8.jpg";
+import { useEffect } from "react";
+import { getCategoryList } from "../../../platform/api/category-api";
+import { getProductsList } from "../../../platform/api/product-api";
 
 export const Home = () => {
   const [infoColumData, setInfoColumData] = useState([
@@ -75,127 +78,89 @@ export const Home = () => {
     },
   ]);
 
-  const [categoriesList, setCategoriesList] = useState([
-    {
-      icon: `${cat1}`,
-      tittle: "Category Name",
-      description: "100 Products",
-    },
-    {
-      icon: cat2,
-      tittle: "Category Name",
-      description: "100 Products",
-    },
-    {
-      icon: cat3,
-      tittle: "Category Name",
-      description: "100 Products",
-    },
-    {
-      icon: cat4,
-      tittle: "Category Name",
-      description: "100 Products",
-    },
-    {
-      icon: cat4,
-      tittle: "Category Name",
-      description: "100 Products",
-    },
-    {
-      icon: cat3,
-      tittle: "Category Name",
-      description: "100 Products",
-    },
-    {
-      icon: cat2,
-      tittle: "Category Name",
-      description: "100 Products",
-    },
-    {
-      icon: cat1,
-      tittle: "Category Name",
-      description: "100 Products",
-    },
-    {
-      icon: cat3,
-      tittle: "Category Name",
-      description: "100 Products",
-    },
-    {
-      icon: cat1,
-      tittle: "Category Name",
-      description: "100 Products",
-    },
-    {
-      icon: cat4,
-      tittle: "Category Name",
-      description: "100 Products",
-    },
-    {
-      icon: cat2,
-      tittle: "Category Name",
-      description: "100 Products",
-    },
-  ]);
+  const [categoriesList, setCategoriesList] = useState([]);
 
   const [productList, setProductList] = useState([
-    {
-      productImg: `${product1}`,
-      productTittle: "Product Name Goes Here",
-      productNewPrice: "$123.00",
-      rate: 5,
-      id: "s7d15a4d56",
-    },
-    {
-      productImg: `${product2}`,
-      productTittle: "Product Name Goes Here",
-      productNewPrice: "$123.00",
-      rate: 5,
-      id: "s7489a4d56",
-    },
-    {
-      productImg: `${product3}`,
-      productTittle: "Product Name Goes Here",
-      productNewPrice: "$123.00",
-      rate: 4,
-      id: "s7d15s8d56",
-    },
-    {
-      productImg: `${product4}`,
-      productTittle: "Product Name Goes Here",
-      productNewPrice: "$123.00",
-      rate: 3,
-      id: "s7d15aw8416",
-    },
-    {
-      productImg: `${product5}`,
-      productTittle: "Product Name Goes Here",
-      productNewPrice: "$123.00",
-      rate: 3,
-      id: "s7d15a8f9g6",
-    },
-    {
-      productImg: `${product6}`,
-      productTittle: "Product Name Goes Here",
-      productNewPrice: "$123.00",
-      rate: 4,
-      id: "s7d151sbg56",
-    },
-    {
-      productImg: `${product7}`,
-      productTittle: "Product Name Goes Here",
-      productNewPrice: "$123.00",
-      rate: 5,
-      id: "s7d15ah6892",
-    },
-    {
-      productImg: `${product8}`,
-      productTittle: "Product Name Goes Here",
-      productNewPrice: "$123.00",
-      rate: 5,
-      id: "s7d15a36d16",
-    },
+    // {
+    //   productImg: `${product1}`,
+    //   productTittle: "Product Name Goes Here",
+    //   productNewPrice: "$123.00",
+    //   rate: 5,
+    //   id: "s7d15a4d56",
+    // },
+    // {
+    //   productImg: `${product2}`,
+    //   productTittle: "Product Name Goes Here",
+    //   productNewPrice: "$123.00",
+    //   rate: 5,
+    //   id: "s7489a4d56",
+    // },
+    // {
+    //   productImg: `${product3}`,
+    //   productTittle: "Product Name Goes Here",
+    //   productNewPrice: "$123.00",
+    //   rate: 4,
+    //   id: "s7d15s8d56",
+    // },
+    // {
+    //   productImg: `${product4}`,
+    //   productTittle: "Product Name Goes Here",
+    //   productNewPrice: "$123.00",
+    //   rate: 3,
+    //   id: "s7d15aw8416",
+    // },
+    // {
+    //   productImg: `${product5}`,
+    //   productTittle: "Product Name Goes Here",
+    //   productNewPrice: "$123.00",
+    //   rate: 3,
+    //   id: "s7d15a8f9g6",
+    // },
+    // {
+    //   productImg: `${product6}`,
+    //   productTittle: "Product Name Goes Here",
+    //   productNewPrice: "$123.00",
+    //   rate: 4,
+    //   id: "s7d151sbg56",
+    // },
+    // {
+    //   productImg: `${product7}`,
+    //   productTittle: "Product Name Goes Here",
+    //   productNewPrice: "$123.00",
+    //   rate: 5,
+    //   id: "s7d15ah6892",
+    // },
+    // {
+    //   productImg: `${product8}`,
+    //   productTittle: "Product Name Goes Here",
+    //   productNewPrice: "$123.00",
+    //   rate: 5,
+    //   id: "s7d15a36d16",
+    // },
   ]);
+
+  useEffect(()=>{
+    getCategoryListData()
+    getProductstData()
+  },[])
+
+
+  const getCategoryListData = async () => {
+    const result = await getCategoryList();
+    if (result.data) {
+      console.log(result.data);
+      setCategoriesList(result.data);
+    }
+  };
+
+  const getProductstData = async () => {
+    const result = await getProductsList();
+    if (result.data) {
+      console.log(result.data);
+      setProductList(result.data);
+      console.log(productList);
+    }
+  };
 
   return (
     <div className="homePage G_container">
@@ -240,11 +205,11 @@ export const Home = () => {
               <Link>
                 <div
                   className="categoriesIcon"
-                  style={{ backgroundImage: `url(${item.icon})` }}
+                  style={{ backgroundImage: `url(${item.image})` }}
                 ></div>
                 <div className="categoriesText">
-                  <h5>{item.tittle}</h5>
-                  <span>{item.description}</span>
+                  <h3>{item.name}</h3>
+                  {/* <span>{item.description}</span> */}
                 </div>
               </Link>
             </div>

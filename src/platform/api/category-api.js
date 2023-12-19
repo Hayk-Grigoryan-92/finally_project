@@ -13,3 +13,7 @@ export const addCategory = async (data) => {
 export const editCategory = async (data, id) => {
     return await axios.put(`${process.env.REACT_APP_BASE_URL}/${content}/${id}`, data)
 }
+
+export const deleteCategory = async (id) => {
+    return await axios.delete(`${process.env.REACT_APP_BASE_URL}/${content}/${id}`)
+}

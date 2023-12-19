@@ -10,13 +10,13 @@ export const ProductList = ({ data }) => {
     >
       <div
         className="productImg"
-        style={{ backgroundImage: `url(${data.productImg})` }}
+        style={{ backgroundImage: `url(${data.image})` }}
       ></div>
       <div className="productData">
-        <div>{data.productTittle}</div>
+        <div className="productDataName">{data.name}</div>
         <div className="productDataPrice">
-          <h5>{data.productNewPrice}</h5>
-          <h6>{data.productNewPrice}</h6>
+          <h4>{data.price}</h4>
+          <h6>{data.price}</h6>
         </div>
         <div className="rate">
           {Array.from({ length: 5 }, (_, index) => {
