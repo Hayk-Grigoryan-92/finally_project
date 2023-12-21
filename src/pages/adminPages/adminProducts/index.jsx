@@ -6,7 +6,6 @@ import { ManageProduct } from "./manage-product";
 import { deleteProduct, getProductsList } from "../../../platform/api/product-api";
 import { useEffect } from "react";
 import { DeleteDialog } from "../../../components/deleteDialog";
-import { getCategoryList } from "../../../platform/api/category-api";
 
 export const AdminProducts = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);
@@ -21,7 +20,6 @@ export const AdminProducts = () => {
 
   useEffect(() => {
     getProductstData();
-    console.log(productDataList);
   }, []);
 
   const handleEdit = (data) => {
@@ -62,7 +60,7 @@ export const AdminProducts = () => {
             <div className="productSection">
               {productDataList.map((item, index) => {
                 return (
-                  <div key={index} className="productItem">
+                  <div key={index} className="adminProductItem">
                     <div  className="prodictImage"
                       style={{ backgroundImage: `url('${item.image}')` }}
                     ></div>

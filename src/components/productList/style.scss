@@ -21,8 +21,21 @@
     justify-content: space-between;
     align-items: center;
 
+    .productDataName{
+      color: $background;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
     .productDataPrice {
       display: flex;
+      h4{
+        color: $background;
+        font-size: 18px;
+      }
+      h6{
+        color: $background;
+      }
     }
   }
 }

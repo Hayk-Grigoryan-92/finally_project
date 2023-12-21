@@ -11,7 +11,7 @@
     height: 100vh;
     background-color: $white_1;
   }
-  .adminRightSection{
+  .adminRightSection {
     width: calc(100% - 330px);
   }
 }
@@ -22,8 +22,7 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
-  // justify-content: space-between;
-}  
+}
 
 .contentView {
   width: 100%;
