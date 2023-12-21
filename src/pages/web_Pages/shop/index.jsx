@@ -1,82 +1,43 @@
 import "./style.scss";
-import { useState } from "react";
-import product1 from "../../../assets/images/product-1.jpg";
-import product2 from "../../../assets/images/product-2.jpg";
-import product3 from "../../../assets/images/product-3.jpg";
-import product4 from "../../../assets/images/product-4.jpg";
-import product5 from "../../../assets/images/product-5.jpg";
-import product6 from "../../../assets/images/product-6.jpg";
-import product7 from "../../../assets/images/product-7.jpg";
-import product8 from "../../../assets/images/product-8.jpg";
-import product9 from "../../../assets/images/product-9.jpg";
+import { useEffect, useState } from "react";
 import { ProductList } from "../../../components/productList";
+import { getProductsList } from "../../../platform/api/product-api";
+import { getSizesList } from "../../../platform/api/size-api";
+import { getColorList } from "../../../platform/api/color-api";
 
 export const Shop = () => {
-  const [productList, setProductList] = useState([
-    {
-      productImg: `${product1}`,
-      productTittle: "Product Name Goes Here",
-      productNewPrice: "$123.00",
-      rate: 5,
-      id: "s7d15a4d56",
-    },
-    {
-      productImg: `${product2}`,
-      productTittle: "Product Name Goes Here",
-      productNewPrice: "$123.00",
-      rate: 5,
-      id: "s7489a4d56",
-    },
-    {
-      productImg: `${product3}`,
-      productTittle: "Product Name Goes Here",
-      productNewPrice: "$123.00",
-      rate: 4,
-      id: "s7d15s8d56",
-    },
-    {
-      productImg: `${product4}`,
-      productTittle: "Product Name Goes Here",
-      productNewPrice: "$123.00",
-      rate: 4,
-      id: "s7d15aw8416",
-    },
-    {
-      productImg: `${product5}`,
-      productTittle: "Product Name Goes Here",
-      productNewPrice: "$123.00",
-      rate: 5,
-      id: "s7d15a8f9g6",
-    },
-    {
-      productImg: `${product6}`,
-      productTittle: "Product Name Goes Here",
-      productNewPrice: "$123.00",
-      rate: 3,
-      id: "s7d151sbg56",
-    },
-    {
-      productImg: `${product7}`,
-      productTittle: "Product Name Goes Here",
-      productNewPrice: "$123.00",
-      rate: 4,
-      id: "s7d15ah6892",
-    },
-    {
-      productImg: `${product8}`,
-      productTittle: "Product Name Goes Here",
-      productNewPrice: "$123.00",
-      rate: 5,
-      id: "s7d15a36d16",
-    },
-    {
-      productImg: `${product9}`,
-      productTittle: "Product Name Goes Here",
-      productNewPrice: "$123.00",
-      rate: 5,
-      id: "s7d15a3jh852",
-    },
-  ]);
+  const [productList, setProductList] = useState([]);
+  const [sizeList, setSizeList] = useState([]);
+  const [colorList, setColorList] = useState([]);
+
+  useEffect(() => {
+    getProductstData();
+    getSizeData();
+    getColorData();
+  }, []);
+
+  const getSizeData = async () => {
+    const result = await getSizesList();
+    if (result.data) {
+      setSizeList(result.data);
+    }
+  };
+
+  const getColorData = async () => {
+    const result = await getColorList();
+    if (result.data) {
+      setColorList(result.data);
+    }
+  };
+
+  const getProductstData = async () => {
+    const result = await getProductsList();
+    if (result.data) {
+      console.log(result.data);
+      setProductList(result.data);
+      console.log(productList);
+    }
+  };
 
   return (
     <div className="shopPage G_container">
@@ -155,41 +116,17 @@ export const Shop = () => {
                 </div>
                 <span>1000</span>
               </div>
-              <div className="filterItem">
-                <div>
-                  <input type="checkbox" />
-                  <label>Black</label>
-                </div>
-                <span>150</span>
-              </div>
-              <div className="filterItem">
-                <div>
-                  <input type="checkbox" />
-                  <label>White</label>
-                </div>
-                <span>295</span>
-              </div>
-              <div className="filterItem">
-                <div>
-                  <input type="checkbox" />
-                  <label>Red</label>
-                </div>
-                <span>246</span>
-              </div>
-              <div className="filterItem">
-                <div>
-                  <input type="checkbox" />
-                  <label>Blue</label>
-                </div>
-                <span>145</span>
-              </div>
-              <div className="filterItem">
-                <div>
-                  <input type="checkbox" />
-                  <label>Green</label>
-                </div>
-                <span>168</span>
-              </div>
+              {colorList.map((item, index) => {
+                return (
+                  <div className="filterItem" key={index}>
+                    <div>
+                      <input type="checkbox" />
+                      <label>{item.name}</label>
+                    </div>
+                    <span>150</span>
+                  </div>
+                );
+              })}
             </div>
           </div>
           <div className="filterSection">
@@ -207,41 +144,17 @@ export const Shop = () => {
                 </div>
                 <span>1000</span>
               </div>
-              <div className="filterItem">
-                <div>
-                  <input type="checkbox" />
-                  <label>XS</label>
-                </div>
-                <span>150</span>
-              </div>
-              <div className="filterItem">
-                <div>
-                  <input type="checkbox" />
-                  <label>S</label>
-                </div>
-                <span>295</span>
-              </div>
-              <div className="filterItem">
-                <div>
-                  <input type="checkbox" />
-                  <label>M</label>
-                </div>
-                <span>246</span>
-              </div>
-              <div className="filterItem">
-                <div>
-                  <input type="checkbox" />
-                  <label>L</label>
-                </div>
-                <span>145</span>
-              </div>
-              <div className="filterItem">
-                <div>
-                  <input type="checkbox" />
-                  <label>XL</label>
-                </div>
-                <span>168</span>
-              </div>
+              {colorList.map((item, index) => {
+                return (
+                  <div className="filterItem" key={index}>
+                    <div>
+                      <input type="checkbox" />
+                      <label>{item.name}</label>
+                    </div>
+                    <span>150</span>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>

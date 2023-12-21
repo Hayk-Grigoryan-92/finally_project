@@ -5,7 +5,7 @@ import { routerPage } from "../../routes";
 export const ProductList = ({ data }) => {
   return (
     <Link
-      to={routerPage.SHOP_DETAILS.replace(":id", data.id)}
+      to={routerPage.SHOP_DETAILS.replace(":id", data._id)}
       className="productItem"
     >
       <div

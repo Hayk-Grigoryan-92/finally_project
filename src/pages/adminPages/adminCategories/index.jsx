@@ -59,12 +59,13 @@ export const AdminCategories = () => {
 
       if (findProduct) {
         setDisableDeleteCategory(
-          `duq cheq karox jnjel ${categoryData.name} categorian@`
+          `There are products in ${categoryData.name} category, you can't delete it`
         );
         setIsOpenDeleteModal(true);
       }
     }
   };
+  
 
   const handleDelete = async () => {
     await deleteCategory(selectedItem._id);
@@ -95,7 +96,7 @@ export const AdminCategories = () => {
                     <div
                       className="categorieImg"
                       style={{ backgroundImage: `url('${item.image}')` }}
-                    ></div>
+                    />
                     <div className="categorieName">{item.name}</div>
                   </div>
                   <div className="categoryButtons">
