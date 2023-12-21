@@ -97,7 +97,6 @@ export const ManageProduct = ({manageData, onClose, updateList}) => {
 
     const selectCategory = (e) => {
         setProductData({...productData, categoryId: e.target.value})
-
     }
 
     const selectSizeList = (id) => {
