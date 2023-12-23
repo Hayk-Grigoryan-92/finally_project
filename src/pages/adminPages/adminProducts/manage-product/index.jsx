@@ -35,13 +35,11 @@ export const ManageProduct = ({ manageData, onClose, updateList }) => {
         categoryId: manageData.categoryId,
         counter:manageData.counter
       });
-      console.log(productData);
     }
   }, [manageData]);
 
   function encodeImageFileAsURL(element) {
     var file = element.target.files[0];
-    console.log(file);
     if (file) {
       var reader = new FileReader();
       reader.onloadend = function () {

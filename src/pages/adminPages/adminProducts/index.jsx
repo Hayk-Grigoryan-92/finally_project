@@ -16,6 +16,7 @@ export const AdminProducts = () => {
 
   const closeDialog = () => {
     setIsOpenModal(false);
+    setSelectedItem(null)
   };
 
   useEffect(() => {
@@ -30,7 +31,6 @@ export const AdminProducts = () => {
   const getProductstData = async () => {
     const result = await getProductsList();
     if (result.data) {
-      console.log(result.data);
       setProductDataList(result.data);
     }
   };
