@@ -4,8 +4,7 @@ import { useEffect, useState } from "react";
 import { Modal } from "../../../components/modal";
 import { ManageCategory } from "./components/manage-category";
 import {
-  deleteCategory,
-  getCategoryList,
+  deleteCategory, getCategoryList,
 } from "../../../platform/api/category-api";
 import { DeleteDialog } from "../../../components/deleteDialog";
 import { getProductsList } from "../../../platform/api/product-api";

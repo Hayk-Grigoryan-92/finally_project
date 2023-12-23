@@ -1,8 +1,4 @@
 import "./style.scss";
-import product1 from "../../../assets/images/product-1.jpg";
-import product2 from "../../../assets/images/product-2.jpg";
-import product3 from "../../../assets/images/product-3.jpg";
-import product4 from "../../../assets/images/product-4.jpg";
 import { useEffect, useState } from "react";
 import { DetailsDescription } from "./detailsDescription";
 import { ProductList } from "../../../components/productList";
@@ -10,29 +6,27 @@ import { DetailsInformation } from "./detailsInformation";
 import { DetailsReview } from "./detailsReview";
 import { useProductsContext } from "../../../context/products";
 import { getSizesList } from "../../../platform/api/size-api";
-import { getColorList } from "../../../platform/api/color-api";
 import {
   getProductDataById,
-  getProductsList,
 } from "../../../platform/api/product-api";
 import { useParams } from "react-router-dom";
 
 export const ShopDetails = () => {
   const [productDetail, setProductDetails] = useState(null);
-
-  const { id } = useParams();
-  console.log(id);
-  const [sizeList, setSizeList] = useState([]);
-  // const [colorList, setColorList] = useState([]);
-
-  const [detailsTabData, setDetailsTabData] = useState([
+  const [productList, setProductList] = useState([]);
+  const [detailsTabData] = useState([
     "Description",
     "Information",
     "Reaviews (0)",
   ]);
 
+  const { id } = useParams();
+
+  const [sizeList, setSizeList] = useState([]);
+
   const { addToProduct } = useProductsContext();
   const [count, setCount] = useState(1);
+  const [activeTab, setActiveTab] = useState(0);
 
   function handleClickMinus() {
     if (count > 1) {
@@ -52,24 +46,28 @@ export const ShopDetails = () => {
       price: 400,
       count,
     });
+    
   }
-
-  const [activeTab, setActiveTab] = useState(0);
 
   function handleClick(index) {
     setActiveTab(index);
   }
 
+  useEffect(() => {
+    if (id) {
+      getProductData();
+    }
+    getSizeData();
+  }, []);
+
+
   const getProductData = async () => {
     const result = await getProductDataById(id);
     if (result) {
       setProductDetails(result.data);
+      console.log(productDetail);
     }
   };
-  useEffect(() => {
-    getSizeData();
-    // getColorData();
-  }, []);
 
   const getSizeData = async () => {
     const result = await getSizesList();
@@ -77,21 +75,6 @@ export const ShopDetails = () => {
       setSizeList(result.data);
     }
   };
-
-  // const getColorData = async () => {
-  //   const result = await getColorList();
-  //   if (result.data) {
-  //     setColorList(result.data);
-  //   }
-  // };
-
-  const [productList, setProductList] = useState([]);
-
-  useEffect(() => {
-    if (id) {
-      getProductData();
-    }
-  }, []);
 
   return (
     productDetail && (
@@ -141,17 +124,8 @@ export const ShopDetails = () => {
             </div>
 
             <div className="productColors">
-              <span>Colors:</span>
-              {/* {colorList.map((item, index) => {
-              return (
-                <div key={index}>
-                  <label>
-                    <input type="radio" />
-                  </label>
-                  {item.name}
-                </div>
-              );
-            })} */}
+              <span>Color:</span>
+              <div className="colorBox" style={{backgroundColor:`${productDetail.color}`}}/>
             </div>
 
             <div className="addProduct">

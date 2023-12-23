@@ -15,6 +15,7 @@ export const ManageProduct = ({ manageData, onClose, updateList }) => {
     size: [],
     categoryId: null,
     color: null,
+    counter:0
   });
 
   const [sizeList, setSizeList] = useState([]);
@@ -32,6 +33,7 @@ export const ManageProduct = ({ manageData, onClose, updateList }) => {
         size: manageData.size,
         color: manageData.color,
         categoryId: manageData.categoryId,
+        counter:manageData.counter
       });
       console.log(productData);
     }

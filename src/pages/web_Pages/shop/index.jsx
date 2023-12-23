@@ -144,7 +144,7 @@ export const Shop = () => {
                 </div>
                 <span>1000</span>
               </div>
-              {colorList.map((item, index) => {
+              {sizeList.map((item, index) => {
                 return (
                   <div className="filterItem" key={index}>
                     <div>

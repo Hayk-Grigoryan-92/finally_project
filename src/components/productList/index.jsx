@@ -15,8 +15,7 @@ export const ProductList = ({ data }) => {
       <div className="productData">
         <div className="productDataName">{data.name}</div>
         <div className="productDataPrice">
-          <h4>{data.price}</h4>
-          <h6>{data.price}</h6>
+          <h4>{data.price}$</h4>
         </div>
         <div className="rate">
           {Array.from({ length: 5 }, (_, index) => {
