@@ -80,64 +80,7 @@ export const Home = () => {
 
   const [categoriesList, setCategoriesList] = useState([]);
 
-  const [productList, setProductList] = useState([
-    // {
-    //   productImg: `${product1}`,
-    //   productTittle: "Product Name Goes Here",
-    //   productNewPrice: "$123.00",
-    //   rate: 5,
-    //   id: "s7d15a4d56",
-    // },
-    // {
-    //   productImg: `${product2}`,
-    //   productTittle: "Product Name Goes Here",
-    //   productNewPrice: "$123.00",
-    //   rate: 5,
-    //   id: "s7489a4d56",
-    // },
-    // {
-    //   productImg: `${product3}`,
-    //   productTittle: "Product Name Goes Here",
-    //   productNewPrice: "$123.00",
-    //   rate: 4,
-    //   id: "s7d15s8d56",
-    // },
-    // {
-    //   productImg: `${product4}`,
-    //   productTittle: "Product Name Goes Here",
-    //   productNewPrice: "$123.00",
-    //   rate: 3,
-    //   id: "s7d15aw8416",
-    // },
-    // {
-    //   productImg: `${product5}`,
-    //   productTittle: "Product Name Goes Here",
-    //   productNewPrice: "$123.00",
-    //   rate: 3,
-    //   id: "s7d15a8f9g6",
-    // },
-    // {
-    //   productImg: `${product6}`,
-    //   productTittle: "Product Name Goes Here",
-    //   productNewPrice: "$123.00",
-    //   rate: 4,
-    //   id: "s7d151sbg56",
-    // },
-    // {
-    //   productImg: `${product7}`,
-    //   productTittle: "Product Name Goes Here",
-    //   productNewPrice: "$123.00",
-    //   rate: 5,
-    //   id: "s7d15ah6892",
-    // },
-    // {
-    //   productImg: `${product8}`,
-    //   productTittle: "Product Name Goes Here",
-    //   productNewPrice: "$123.00",
-    //   rate: 5,
-    //   id: "s7d15a36d16",
-    // },
-  ]);
+  const [productList, setProductList] = useState([]);
 
   useEffect(()=>{
     getCategoryListData()
@@ -158,7 +101,6 @@ export const Home = () => {
     if (result.data) {
       console.log(result.data);
       setProductList(result.data);
-      console.log(productList);
     }
   };
 

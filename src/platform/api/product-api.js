@@ -17,3 +17,8 @@ export const editProduct = async (data, id) => {
 export const deleteProduct = async (id) => {
     return await axios.delete(`${process.env.REACT_APP_BASE_URL}/${content}/${id}`)
 }
+
+export const getProductDataById = async(id)=>{
+    return await axios.get(`${process.env.REACT_APP_BASE_URL}/${content}/${id}`)
+
+}
