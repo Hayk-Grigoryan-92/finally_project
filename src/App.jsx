@@ -18,22 +18,23 @@ import { useUsersContext } from "./context/users";
 import { AdminPage } from "./pages/adminPages";
 
 function App() {
+
+  const [isloading, setIsLoading] = useState(false)
+
   const location = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
   const [token, setToken] = useState("");
-  const { users, userLoading } = useUsersContext(); 
+  const { users } = useUsersContext(); 
 
   useEffect(() => {
     let tokenData = localStorage.getItem("token");
     setToken(tokenData);
   }, []);
 
-  // if (userLoading) {
-  //   return <p>loading.....</p>;
-  // }
+ 
 
   return (
     <div className="App">

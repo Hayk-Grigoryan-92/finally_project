@@ -9,6 +9,8 @@ export const ProductsProvider = ({ children }) => {
     setProduct([...product, productData]);
   };
 
+
+
   useEffect(() => {
     console.log(product);
   }, [product]);
