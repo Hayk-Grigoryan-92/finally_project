@@ -74,7 +74,7 @@
 
   .leftSideSection {
     width: 28%;
-    height: 1100px;
+    height: 1000px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -153,5 +153,39 @@
         background-size: cover;
       }
     }
+  }
+}
+
+.priceList{
+  padding: 20px;
+  margin-left: 33px;
+  background-color: $white_3;
+  width: 270px;
+
+  .rangePrice{
+      color: $background;
+      font-weight: 20px;
+  }
+
+  .price{
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+
+      input{
+          height: 30px;
+          width: 250px;
+      }
+
+      p{
+          color: $background;
+          font-size: 2px0;
+      
+      }
+  }
+
+  .rangePrices{
+      display: flex;
+      justify-content: space-between;
   }
 }

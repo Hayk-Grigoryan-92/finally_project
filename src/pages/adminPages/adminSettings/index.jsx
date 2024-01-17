@@ -7,6 +7,7 @@ export const AdminSettings = () => {
   return (
     <div className="adminContent">
       <AdminPageTittle tittle="Settings" />
+      
       <div className="contentView">
         <SizeContent />
         <ColorContent/>

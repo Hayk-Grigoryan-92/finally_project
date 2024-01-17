@@ -4,6 +4,7 @@ import { deleteSize, getSizesList } from "../../../../../platform/api/size-api";
 import { Modal } from "../../../../../components/modal";
 import { ManageSizeDialog } from "../manage-size-dialog";
 import { DeleteDialog } from "../../../../../components/deleteDialog";
+import { Loader } from '../../../../../components/loader';
 
 export const SizeContent = () => {
   const [selectedItem, setSelectedItem] = useState(null);
@@ -11,15 +12,18 @@ export const SizeContent = () => {
 
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [isOpenDeleteModal, setIsOpenDeleteModal] = useState(false);
+  const [pageLoader, setPageLoader] = useState(true)
 
   useEffect(() => {
     getSizeListData();
   }, []);
 
   const getSizeListData = async () => {
+    setPageLoader(true)
     const result = await getSizesList();
     if (result.data) {
       setSizeList(result.data);
+      setPageLoader(false)
     }
   };
 
@@ -49,7 +53,7 @@ export const SizeContent = () => {
         </div>
       </div>
 
-      {sizeList.length ? (
+      {sizeList.length && !pageLoader ? (
         <div className="sizeSettingList">
           {sizeList.map((item, index) => {
             return (
@@ -77,7 +81,9 @@ export const SizeContent = () => {
             );
           })}
         </div>
-      ) : null}
+      ) : <div style={{minHeight:'100vh'}}>
+      <Loader/>
+    </div>}
 
       {isOpenModal ? (
         <Modal

@@ -31,7 +31,6 @@
       height: 490px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
 
       .shoppingListNavbar {
         width: 100%;
@@ -39,6 +38,7 @@
         height: 60px;
         display: flex;
         justify-content: space-between;
+        margin-bottom: 20px;
         .nav1 {
           width: 30%;
           display: flex;
@@ -81,6 +81,7 @@
         display: flex;
         justify-content: space-between;
         background-color: $white_1;
+        margin-bottom: 20px;
         .row1 {
           width: 30%;
           height: 60px;
@@ -94,6 +95,7 @@
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
+            margin-right: 10px;
           }
         }
         .row2 {
@@ -111,15 +113,10 @@
           justify-content: center;
           align-items: center;
           color: $background;
-          .minus {
-            background-color: $product_yellow;
-          }
-          .plus {
-            background-color: $product_yellow;
-          }
+      
           .quantity {
             background-color: $white_3;
-            width: 40px;
+            width: 120px;
           }
           div {
             width: 30px;
@@ -152,6 +149,10 @@
             font-weight: 600;
             text-align: center;
             background-color: $background_red;
+            cursor: pointer;
+            &:hover{
+              background-color: $background_hover_red;
+            }
           }
         }
       }

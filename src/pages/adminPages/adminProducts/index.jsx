@@ -6,13 +6,14 @@ import { ManageProduct } from "./manage-product";
 import { deleteProduct, getProductsList } from "../../../platform/api/product-api";
 import { useEffect } from "react";
 import { DeleteDialog } from "../../../components/deleteDialog";
+import { Loader } from "../../../components/loader";
 
 export const AdminProducts = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [isOpenDeleteModal, setIsOpenDeleteModal] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
   const [productDataList, setProductDataList] = useState([]);
-  
+  const [pageLoader, setPageLoader] = useState(true)
 
   const closeDialog = () => {
     setIsOpenModal(false);
@@ -29,9 +30,11 @@ export const AdminProducts = () => {
   };
 
   const getProductstData = async () => {
+    setPageLoader(true)
     const result = await getProductsList();
     if (result.data) {
       setProductDataList(result.data);
+      setPageLoader(false)
     }
   };
 
@@ -56,7 +59,7 @@ export const AdminProducts = () => {
           <button onClick={() => setIsOpenModal(true)}>Add Product</button>
         </div>
 
-          {productDataList.length ? (
+          {productDataList.length && !pageLoader ? (
             <div className="productSection">
               {productDataList.map((item, index) => {
                 return (
@@ -84,7 +87,9 @@ export const AdminProducts = () => {
                 );
               })}
             </div>
-          ) : null}
+          ) : <div style={{minHeight:'100vh'}}>
+          <Loader/>
+        </div>}
 
         {isOpenModal ? (
           <Modal onClose={closeDialog} title={"Add Product"}>

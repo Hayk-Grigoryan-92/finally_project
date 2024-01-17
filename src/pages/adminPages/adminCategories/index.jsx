@@ -8,6 +8,7 @@ import {
 } from "../../../platform/api/category-api";
 import { DeleteDialog } from "../../../components/deleteDialog";
 import { getProductsList } from "../../../platform/api/product-api";
+import { Loader } from "../../../components/loader";
 
 export const AdminCategories = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);
@@ -15,7 +16,7 @@ export const AdminCategories = () => {
   const [disableDeleteCategory, setDisableDeleteCategory] = useState("");
   const [categorieDataList, setCategorieDataList] = useState([]);
   const [productDataList, setProductDataList] = useState([]);
-
+  const [pageLoader, setPageLoader] = useState(true)
   const [selectedItem, setSelectedItem] = useState(null);
 
   useEffect(() => {
@@ -26,7 +27,6 @@ export const AdminCategories = () => {
   const getProductstData = async () => {
     const result = await getProductsList();
     if (result.data) {
-      console.log(result.data);
       setProductDataList(result.data);
     }
   };
@@ -36,10 +36,11 @@ export const AdminCategories = () => {
   };
 
   const getCategoryListData = async () => {
+    setPageLoader(true)
     const result = await getCategoryList();
     if (result.data) {
-      console.log(result.data);
       setCategorieDataList(result.data);
+      setPageLoader(false)
     }
   };
 
@@ -48,7 +49,7 @@ export const AdminCategories = () => {
     setIsOpenModal(true);
   };
 
-  const openDelteModal = (categoryData) => {
+  const openDeleteModal = (categoryData) => {
     setSelectedItem(categoryData);
     setIsOpenDeleteModal(true);
     if (productDataList.length) {
@@ -86,7 +87,7 @@ export const AdminCategories = () => {
           <button onClick={() => setIsOpenModal(true)}>Add Categorie</button>
         </div>
 
-        {categorieDataList.length ? (
+        {categorieDataList.length && !pageLoader ? (
           <div className="categorieList">
             {categorieDataList.map((item, index) => {
               return (
@@ -102,7 +103,7 @@ export const AdminCategories = () => {
                     <button onClick={() => handleEdit(item)}>Edit</button>
                     <button
                       onClick={() => {
-                        openDelteModal(item);
+                        openDeleteModal(item);
                       }}
                     >
                       Delete
@@ -112,7 +113,9 @@ export const AdminCategories = () => {
               );
             })}
           </div>
-        ) : null}
+        ) : <div style={{minHeight:'100vh'}}>
+        <Loader/>
+      </div>}
       </div>
 
       {isOpenModal ? (

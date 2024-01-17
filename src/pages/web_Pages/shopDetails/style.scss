@@ -46,10 +46,19 @@
 
             .productName{
                 width: 100%;
+                display: flex;
+                justify-content: space-between;
                 h3{
                     font-size: 28px;
                     font-weight: 700;
                     color: $background;
+                }
+                span{
+                    font-size: 48px;
+                    color: $product_yellow;
+                    &:hover{
+                        color: $hover_yellow;
+                    }
                 }
             }
             .productRate{

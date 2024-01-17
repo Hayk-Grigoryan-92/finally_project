@@ -15,7 +15,7 @@ export const Login = () => {
     password: "",
   });
 
-  const [loading, setLoading] = useState(false);
+  const [userNotFound, setUserNotFound] = useState(false)
 
   function emailValidate(email) {
     return /\S+@\S+\.\S+/.test(email);
@@ -34,19 +34,16 @@ export const Login = () => {
     };
 
     if (!emailValidate(loginData.email)) {
-      errors.email = "Incorect Email";
+      errors.email = "Incorect email or password";
       isVerification = false;
-      setLoading(false)
     }
     if (!loginData.email.trim().length) {
       errors.email = "Empty email field";
       isVerification = false;
-      setLoading(false)
     }
     if (!loginData.password.trim().length) {
       errors.password = "Empty password field";
       isVerification = false;
-      setLoading(false)
     }
 
     setLoginErrors(errors);
@@ -54,7 +51,6 @@ export const Login = () => {
   }
 
   const loginUser = async () => {
-    setLoading(true)
     const result = await getUsers();
     if (verification() && result && result.data.length) {
       const user = result.data.find(
@@ -62,15 +58,20 @@ export const Login = () => {
           item.email === loginData.email && item.password === loginData.password
       );
       if (user) {
-        setLoading(false)
         localStorage.setItem("token", user._id);
         window.location.reload();
+      }else{
+        setLoginData({
+          email: "",
+          password: "",
+        })
+        setUserNotFound(true)
       }
     }
   };
 
   return (
-    <div className="login">
+      <div className="login">
       <div className="loginContainer">
         <div>
           <label>
@@ -85,6 +86,9 @@ export const Login = () => {
             {loginErrors.email ? (
               <p className="errorText">{loginErrors.email}</p>
             ) : null}
+            {userNotFound ? (
+              <p className="errorText">Incorect email or password</p>
+            ):null}
           </label>
         </div>
         <div>
@@ -100,12 +104,15 @@ export const Login = () => {
             {loginErrors.email ? (
               <p className="errorText">{loginErrors.password}</p>
             ) : null}
+            {userNotFound ? (
+              <p className="errorText">Incorect email or password</p>
+            ):null}
           </label>
         </div>
         <h4>
           <Link>Forgot password ?</Link>
         </h4>
-        <button onClick={loginUser}>{loading ? "Loading..." : "Login"}</button>
+        <button onClick={loginUser}>Login</button>
         <h3>
           Don't have an account ?
           <Link to={routerPage.REGISTRATION}>Sign Up</Link>

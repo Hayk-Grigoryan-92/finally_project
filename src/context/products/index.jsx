@@ -6,13 +6,18 @@ export const ProductsProvider = ({ children }) => {
   const [product, setProduct] = useState([]);
 
   const addToProduct = (productData) => {
-    setProduct([...product, productData]);
+    const findProduct = product.find(x=>x._id === productData._id)
+    if(findProduct){
+      findProduct.count = productData.count
+    }else{
+      setProduct([...product, productData]);
+    }
   };
 
 
 
   useEffect(() => {
-    console.log(product);
+
   }, [product]);
 
   return (

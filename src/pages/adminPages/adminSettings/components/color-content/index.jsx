@@ -4,11 +4,13 @@ import { deleteColor, getColorList } from "../../../../../platform/api/color-api
 import { Modal } from "../../../../../components/modal";
 import { ManageColorDialog } from "../manage-color-dialog";
 import { DeleteDialog } from "../../../../../components/deleteDialog";
+import { Loader } from '../../../../../components/loader';
 
 export const ColorContent = () => {
 
   const [selectedItem, setSelectedItem] = useState(null);
   const [colorList, setColorList] = useState([]);
+  const [pageLoader, setPageLoader] = useState(true)
 
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [isOpenDeleteModal, setIsOpenDeleteModal] = useState(false);
@@ -25,9 +27,11 @@ export const ColorContent = () => {
   }, []);
 
   const getColorListData = async () => {
+    setPageLoader(true)
     const result = await getColorList();
     if (result.data) {
       setColorList(result.data);
+      setPageLoader(false)
     }
   };
 
@@ -50,7 +54,7 @@ export const ColorContent = () => {
         </div>
       </div>
 
-      {colorList.length ? (
+      {colorList.length && !pageLoader ? (
         <div className="colorSettingList">
           {colorList.map((item, index) => {
             return (
@@ -78,7 +82,9 @@ export const ColorContent = () => {
             );
           })}
         </div>
-      ) : null}
+      ) : <div style={{minHeight:'100vh'}}>
+      <Loader/>
+    </div>}
 
       {isOpenModal ? (
         <Modal

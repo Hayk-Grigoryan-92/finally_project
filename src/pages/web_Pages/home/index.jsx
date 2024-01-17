@@ -33,6 +33,7 @@ import sliderLogo8 from "../../../assets/images/autoSlider-8.jpg";
 import { useEffect } from "react";
 import { getCategoryList } from "../../../platform/api/category-api";
 import { getProductsList } from "../../../platform/api/product-api";
+import { Loader } from "../../../components/loader";
 
 export const Home = () => {
   const [infoColumData, setInfoColumData] = useState([
@@ -82,6 +83,8 @@ export const Home = () => {
 
   const [productList, setProductList] = useState([]);
 
+  const [pageLoader, setPageLoader] = useState(true)
+
   useEffect(()=>{
     getCategoryListData()
     getProductstData()
@@ -89,23 +92,26 @@ export const Home = () => {
 
 
   const getCategoryListData = async () => {
+    setPageLoader(true)
     const result = await getCategoryList();
     if (result.data) {
-      console.log(result.data);
       setCategoriesList(result.data);
+      setPageLoader(false)
     }
   };
 
   const getProductstData = async () => {
+    setPageLoader(true)
     const result = await getProductsList();
     if (result.data) {
-      console.log(result.data);
       setProductList(result.data);
+      setPageLoader(false)
     }
   };
 
   return (
-    <div className="homePage G_container">
+    productList.length && categoriesList.length && !pageLoader ? (
+      <div className="homePage G_container">
       <div className="bannerSection">
         <div className="slider">
           <CustomSlider sliderListData={sliderData} />
@@ -151,7 +157,6 @@ export const Home = () => {
                 ></div>
                 <div className="categoriesText">
                   <h3>{item.name}</h3>
-                  {/* <span>{item.description}</span> */}
                 </div>
               </Link>
             </div>
@@ -207,5 +212,8 @@ export const Home = () => {
         />
       </div>
     </div>
+    ) : <div style={{minHeight:'100vh'}}>
+    <Loader/>
+  </div>
   );
 };

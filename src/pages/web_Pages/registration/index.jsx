@@ -3,6 +3,7 @@ import { routerPage } from "../../../routes";
 import "./style.scss";
 import { Link, useNavigate } from "react-router-dom";
 import { createUser } from "../../../platform/api/users-api";
+import { Loader } from "../../../components/loader";
 
 export const Registration = () => {
   const [regFormData, setRegFormData] = useState({
@@ -17,7 +18,7 @@ export const Registration = () => {
     confirmPassword: "",
   });
 
-  const [loading, setLoading] = useState(false);
+  const [pageLoader, setPageLoader] = useState(false)
 
   function handleChange(e) {
     setRegFormData({ ...regFormData, [e.target.name]: e.target.value });
@@ -39,24 +40,24 @@ export const Registration = () => {
     if (!emailValidate(regFormData.email)) {
       errors.email = "Incorect Email";
       isValidate = false;
-      setLoading(false);
+      setPageLoader(false);
     }
 
     if (!regFormData.email.trim().length) {
       errors.email = "Empty email field";
       isValidate = false;
-      setLoading(false);
+      setPageLoader(false);
     }
 
     if (!regFormData.password.trim().length) {
       errors.password = "Empty password field";
       isValidate = false;
-      setLoading(false);
+      setPageLoader(false);
     }
     if (!regFormData.confirmPassword.trim().length) {
       errors.confirmPassword = "Empty confirm password field";
       isValidate = false;
-      setLoading(false);
+      setPageLoader(false);
     }
     if (
       regFormData.password.trim().length !==
@@ -64,7 +65,7 @@ export const Registration = () => {
       errors.password = "Password mismatch";
       errors.confirmPassword = "Password mismatch";
       isValidate = false;
-      setLoading(false);
+      setPageLoader(false);
     }
 
     setErrorFormData(errors);
@@ -74,10 +75,10 @@ export const Registration = () => {
   const navigate = useNavigate();
 
   const registerUser = async () => {
-    setLoading(true)
+    setPageLoader(true)
     if (
       validate() &&
-      !loading &&
+      !pageLoader &&
       regFormData.email &&
       regFormData.password &&
       regFormData.confirmPassword &&
@@ -90,14 +91,15 @@ export const Registration = () => {
           password: "",
           confirmPassword: "",
         });
-        setLoading(false);
+        setPageLoader(false);
       }
       navigate(routerPage.LOGIN);
     }
   };
 
   return (
-    <div className="registration">
+    !pageLoader ? (
+      <div className="registration">
       <div className="registrationContainer">
         <div>
           <label>
@@ -145,12 +147,15 @@ export const Registration = () => {
           </label>
         </div>
         <button onClick={registerUser}>
-          {loading ? "Loading..." : "Sign Up"}
+          Sign Up
         </button>
         <h3>
           Alredy have an account ?<Link to={routerPage.LOGIN}>Login</Link>
         </h3>
       </div>
     </div>
+    ) : <div style={{minHeight:'100vh'}}>
+    <Loader/>
+  </div> 
   );
 };

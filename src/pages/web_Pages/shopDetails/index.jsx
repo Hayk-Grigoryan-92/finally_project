@@ -9,11 +9,15 @@ import { getSizesList } from "../../../platform/api/size-api";
 import {
   getProductDataById,
 } from "../../../platform/api/product-api";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { Loader } from "../../../components/loader";
+import { routerPage } from "../../../routes";
+import { Link } from "react-router-dom";
 
 export const ShopDetails = () => {
   const [productDetail, setProductDetails] = useState(null);
-  const [productList, setProductList] = useState([]);
+  const [productList] = useState([]);
+  const [pageLoader, setPageLoader] = useState(true)
   const [detailsTabData] = useState([
     "Description",
     "Information",
@@ -41,9 +45,7 @@ export const ShopDetails = () => {
 
   function addToCart() {
     addToProduct({
-      name: "test product",
-      desc: "lorem",
-      price: 400,
+      ...productDetail,
       count,
     });
     
@@ -60,12 +62,14 @@ export const ShopDetails = () => {
     getSizeData();
   }, []);
 
+  const navigate = useNavigate()
 
   const getProductData = async () => {
+    setPageLoader(true)
     const result = await getProductDataById(id);
     if (result) {
       setProductDetails(result.data);
-      console.log(productDetail);
+      setPageLoader(false)
     }
   };
 
@@ -77,7 +81,7 @@ export const ShopDetails = () => {
   };
 
   return (
-    productDetail && (
+    productDetail && !pageLoader ? (
       <div className="shopDetails G_container">
         <div className="shopPageLocation">
           <span>Home /</span>
@@ -94,6 +98,7 @@ export const ShopDetails = () => {
           <div className="detailsInfo">
             <div className="productName">
               <h3>{productDetail.name}</h3>
+              <span className="icon-back_page" onClick={()=>navigate(routerPage.SHOP)}></span>
             </div>
             <div className="productRate">
               <span className="icon-star_icon"></span>
@@ -104,7 +109,7 @@ export const ShopDetails = () => {
               <span className="reviews">( 99 reviews ) </span>
             </div>
             <div className="productPrice">
-              <span>{productDetail.price}</span>
+              <span>{productDetail.price}$</span>
             </div>
             <div className="productDescription">
               <p>{productDetail.description}</p>
@@ -189,6 +194,8 @@ export const ShopDetails = () => {
           </div>
         </div>
       </div>
-    )
+    ): <div style={{minHeight:'100vh'}}>
+      <Loader/>
+    </div>
   );
 };
